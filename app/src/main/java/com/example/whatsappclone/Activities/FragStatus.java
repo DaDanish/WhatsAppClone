@@ -129,7 +129,7 @@ public class FragStatus extends Fragment {
         recyclerviewStatus = view.findViewById(R.id.recyclerviewStatus);
 
 
-       // layoutManager = new LinearLayoutManager(this.getActivity());
+       //layoutManager = new LinearLayoutManager(this.getActivity());
         LinearLayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerviewStatus.setLayoutManager(layoutManager);
