@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.example.whatsappclone.Adapters.StatusAdapter;
 import com.example.whatsappclone.ModalClasses.Status;
@@ -57,7 +58,6 @@ public class FragStatus extends Fragment {
     User user;
 
     public FragStatus(){
-
     }
 
     @Nullable
@@ -71,6 +71,8 @@ public class FragStatus extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        userStatuses = new ArrayList<>();
 
         dialog = new ProgressDialog(this.getContext());
         dialog.setMessage("Uploading image...");
@@ -99,9 +101,19 @@ public class FragStatus extends Fragment {
                     for (DataSnapshot storySnapshot1: snapshot.getChildren()){
                         UserStatus status  = new UserStatus();
                         status.setName(storySnapshot1.child("name").getValue(String.class));
-                        status.setName(storySnapshot1.child("name").getValue(String.class));
-                        status.setName(storySnapshot1.child("name").getValue(String.class));
+                        status.setProfileImage(storySnapshot1.child("profileImage").getValue(String.class));
+                        status.setLastUpdated(storySnapshot1.child("lastUpdated").getValue(Long.class));
+
+                        ArrayList<Status> statuses = new ArrayList<>();
+
+                        for (DataSnapshot statusSnapshot : storySnapshot1.child("statuses").getChildren()){
+                            Status sampleStatus = statusSnapshot.getValue(Status.class);
+                            statuses.add(sampleStatus);
+                        }
+                        status.setStatuses(statuses);
+                        userStatuses.add(status);
                     }
+                    adapter.notifyDataSetChanged();
                 }
             }
 
@@ -115,9 +127,11 @@ public class FragStatus extends Fragment {
 
         fabAdd = view.findViewById(R.id.fabAdd);
         recyclerviewStatus = view.findViewById(R.id.recyclerviewStatus);
-        recyclerviewStatus.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(this.getActivity());
+
+       // layoutManager = new LinearLayoutManager(this.getActivity());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerviewStatus.setLayoutManager(layoutManager);
 
         adapter = new StatusAdapter(this.getContext(),userStatuses);

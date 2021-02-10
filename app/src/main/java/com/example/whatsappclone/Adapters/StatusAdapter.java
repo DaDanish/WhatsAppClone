@@ -38,7 +38,7 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.StatusView
 
     @Override
     public int getItemCount() {
-        return 0;
+        return userStatuses.size();
     }
 
     public class StatusViewHolder extends RecyclerView.ViewHolder {
