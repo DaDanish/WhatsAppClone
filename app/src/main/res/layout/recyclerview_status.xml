@@ -5,32 +5,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_centerInParent="true"
-            android:padding="6dp"
-            android:src="@mipmap/ic_launcher" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivCircularImage"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_centerInParent="true"
+                android:padding="6dp"
+                android:src="@mipmap/ic_launcher" />
 
-        <com.devlomi.circularstatusview.CircularStatusView
-            android:id="@+id/circular_status_view"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_centerInParent="true"
-            app:portion_color="@color/green"
-            app:portion_spacing="4dp"
-            app:portion_width="4dp"
-            app:portions_count="8" />
+            <com.devlomi.circularstatusview.CircularStatusView
+                android:id="@+id/circular_status_view"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_centerInParent="true"
+                app:portion_color="@color/green"
+                app:portion_spacing="4dp"
+                app:portion_width="4dp"
+                app:portions_count="8" />
 
 
-    </RelativeLayout>
+        </RelativeLayout>
 
+        <TextView
+            android:id="@+id/tvStatusName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="#BCBCBC" />
 </LinearLayout>

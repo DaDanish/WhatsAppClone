@@ -98,6 +98,7 @@ public class FragStatus extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
+                    userStatuses.clear();
                     for (DataSnapshot storySnapshot1: snapshot.getChildren()){
                         UserStatus status  = new UserStatus();
                         status.setName(storySnapshot1.child("name").getValue(String.class));

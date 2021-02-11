@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.whatsappclone.Adapters.UserAdapter;
 import com.example.whatsappclone.ModalClasses.User;
 import com.example.whatsappclone.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -71,7 +72,8 @@ public class FragChats extends Fragment {
                 userArrayList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     User user = dataSnapshot.getValue(User.class);
-                    userArrayList.add(user);
+                    if(!user.getUid().equals(FirebaseAuth.getInstance().getUid()))  //to hide the current user
+                    {userArrayList.add(user);}
                 }
                 userAdapter.notifyDataSetChanged();
             }
