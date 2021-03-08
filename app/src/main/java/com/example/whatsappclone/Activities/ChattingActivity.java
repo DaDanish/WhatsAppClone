@@ -49,7 +49,7 @@ public class ChattingActivity extends AppCompatActivity {
         String receiverUid = getIntent().getStringExtra("uid");
         String senderUid = FirebaseAuth.getInstance().getUid();
         getSupportActionBar().setTitle(name);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //button for back button on top left corner
 
         senderRoom = senderUid + receiverUid;
         receiverRoom = receiverUid + senderUid;

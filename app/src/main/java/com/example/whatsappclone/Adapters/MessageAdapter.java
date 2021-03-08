@@ -22,6 +22,7 @@ public class MessageAdapter extends RecyclerView.Adapter{
     Context context;
     ArrayList<Message> messages;
 
+
     final int ITEM_SENT=1;
     final int ITEM_RECEIVE=2;
 
@@ -74,7 +75,7 @@ public class MessageAdapter extends RecyclerView.Adapter{
     }
 
     @Override
-    public int getItemCount() {
+    public  int getItemCount() {
         return messages.size();
     }
 
@@ -91,8 +92,6 @@ public class MessageAdapter extends RecyclerView.Adapter{
             itemSentBinding = ItemSentBinding.bind(itemView);
         }
     }
-
-
 
 
 

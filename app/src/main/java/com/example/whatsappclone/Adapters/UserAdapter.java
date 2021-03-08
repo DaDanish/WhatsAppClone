@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder>{
@@ -64,7 +66,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                             String lastMsg = snapshot.child("LastMsg").getValue(String.class);
                             Long time = snapshot.child("LastMsgTime").getValue(Long.class);
 
+                            DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss a");
+                            String lastMessageTime = dateFormat.format(time);
+
                             holder.recyclerviewChatsBinding.tvLastMessage.setText(lastMsg);
+                            holder.recyclerviewChatsBinding.tvTime.setText(lastMessageTime);
 
                         }else {
                             holder.recyclerviewChatsBinding.tvLastMessage.setText("Tap to chat...");
@@ -99,6 +105,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public class UserViewHolder extends RecyclerView.ViewHolder{
 
         RecyclerviewChatsBinding recyclerviewChatsBinding;
+
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);

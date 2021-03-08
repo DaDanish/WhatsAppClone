@@ -24,6 +24,8 @@ import com.google.firebase.storage.UploadTask;
 
 public class SetupActivity extends AppCompatActivity {
 
+    String toCheckUpload;
+
     final int SETUP_CODE = 10;
 
     ActivitySetupBinding activitySetupBinding;

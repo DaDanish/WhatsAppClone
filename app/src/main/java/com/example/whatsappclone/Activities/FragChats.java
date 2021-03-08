@@ -1,5 +1,7 @@
 package com.example.whatsappclone.Activities;
 
+
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -48,6 +50,7 @@ public class FragChats extends Fragment {
         view = inflater.inflate(R.layout.fragment_frag_chats, container, false);
         return view;
     }
+
 
 
     @Override

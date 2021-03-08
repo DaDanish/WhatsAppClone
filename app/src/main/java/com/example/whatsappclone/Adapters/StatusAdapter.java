@@ -67,7 +67,7 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.StatusView
                 }
 
                 long date = userStatus.getLastUpdated();
-                DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+                DateFormat dateFormat = new SimpleDateFormat("hh:mm: a");
                 String strDate = dateFormat.format(date);
 
                 new StoryView.Builder(((MainActivity)context).getSupportFragmentManager())

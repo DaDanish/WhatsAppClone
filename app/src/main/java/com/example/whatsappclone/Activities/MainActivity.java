@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.whatsappclone.Adapters.MessageAdapter;
+import com.example.whatsappclone.Adapters.UserAdapter;
 import com.example.whatsappclone.R;
 import com.example.whatsappclone.databinding.ActivityMainBinding;
 import com.google.android.material.badge.BadgeDrawable;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     FragChats fragChats;
     FragStatus fragStatus;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +50,10 @@ public class MainActivity extends AppCompatActivity {
         BadgeDrawable badgeDrawableExplore = activityMainBinding.tabLayout.getTabAt(0).getOrCreateBadge();
         badgeDrawableExplore.setVisible(true);
         badgeDrawableExplore.setMaxCharacterCount(3); //this will show 99+ if the number set is greater than 99
-        badgeDrawableExplore.setNumber(10);
+        badgeDrawableExplore.setNumber(4);
+
+
+
 
     }
 
